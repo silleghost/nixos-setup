@@ -12,14 +12,15 @@
     enable = true;
     userName = "silleghost";
     userEmail = "silleghost@gmail.com";
+    extraConfig = {
+      credential.helper = "oauth";
+    };
+
   };
 
   programs.bash = {
     enable = true;
     enableCompletion = true;
-    # bashrcExtra = ''
-    #   export PATH="$PATH:$HOME/bin:$HOME/.local/bin:$HOME/go/bin"
-    # '';
 
     shellAliases = {
       rebuild = "sudo nixos-rebuild switch";
