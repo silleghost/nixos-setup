@@ -7,6 +7,9 @@
 }:
 
 {
+  imports = [
+    ./cachix.nix
+  ];
 
   nix.settings.trusted-substituters = [ "https://ai.cachix.org" ];
   nix.settings.trusted-public-keys = [
@@ -20,8 +23,21 @@
     git
     wget
     vim
+    htop
+    glxinfo
+    busybox
     inputs.nixvim.packages.x86_64-linux.default
   ];
+
+  programs.nix-ld.enable = true;
+
+  virtualisation.docker = {
+    enable = true;
+    rootless = {
+      enable = true;
+      setSocketVariable = true;
+    };
+  };
 
   system.stateVersion = "24.05"; # Did you read the comment?
 }

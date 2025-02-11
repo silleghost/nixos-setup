@@ -12,11 +12,10 @@
     enable = true;
     userName = "silleghost";
     userEmail = "silleghost@gmail.com";
-    extraConfig = {
-      credential.helper = "oauth";
-    };
 
   };
+
+  programs.git-credential-oauth.enable = true;
 
   programs.bash = {
     enable = true;
